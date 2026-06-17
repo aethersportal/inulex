@@ -14,7 +14,7 @@ jobs:
       - name: deploy2nekoweb
         uses: indiefellas/deploy2nekoweb@main
         with:
-          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }} API KEY VARIABLE
+          nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
           nekoweb-domain: 'inulex.nekoweb.org'
           nekoweb-username: 'inulex'
           directory: 'inulex.nekoweb.org'
