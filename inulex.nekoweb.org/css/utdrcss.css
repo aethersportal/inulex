@@ -1,6 +1,6 @@
 
-@font-face { font-family: deltarune; src: url('/inulex.nekoweb.org/fonts/deltarune.ttf'); } 
-@font-face { font-family: Determination; src: url('/inulex.nekoweb.org/fonts/determination.ttf'); } 
+@font-face { font-family: deltarune; src: url('../fonts/deltarune.ttf'); } 
+@font-face { font-family: Determination; src: url('../fonts/determination.ttf'); } 
 
 html{
     cursor: url("SOUL_battle.ico"), default;
@@ -8,7 +8,7 @@ html{
 }
 
 body {
-  background: url(/inulex.nekoweb.org/images/backgrounds/underwater.gif);
+  background: url(../images/backgrounds/underwater.gif);
   font-family: monospace;
   font-size: 14px;
 }
@@ -88,7 +88,7 @@ a {
   margin-bottom: 35px;
   margin-top: 35px;
    border: 25px solid transparent;
-    border-image: url(/inulex.nekoweb.org/images/backgrounds/deltaruneborder.png) 26 round;
+    border-image: url(../images/backgrounds/deltaruneborder.png) 26 round;
     overflow: auto;
     background-clip: padding-box;
 }
