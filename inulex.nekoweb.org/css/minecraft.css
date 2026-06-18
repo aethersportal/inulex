@@ -1,7 +1,7 @@
-@font-face { font-family: Minecraft; src: url('/fonts/Minecraft.ttf'); } 
+@font-face { font-family: Minecraft; src: url('/inulex.nekoweb.org/fonts/Minecraft.ttf'); } 
 
 body {
-  background: url(/images/backgrounds/minecraftmovie.png);
+  background: url(/inulex.nekoweb.org/images/backgrounds/minecraftmovie.png);
      background-size: cover;
     background-repeat: no-repeat;
   font-family: monospace;
@@ -33,7 +33,7 @@ a {
   font-size: 100px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(37, 93, 37);
-  background-image: url(/images/backgrounds/BlockSprite_grass-block.png);
+  background-image: url(/inulex.nekoweb.org/images/backgrounds/BlockSprite_grass-block.png);
   -webkit-background-clip: text;
   -webkit-text-fill-color: #0000;
   background-clip: text;
@@ -67,7 +67,7 @@ a {
   margin-bottom: 35px;
   margin-top: 35px;
     border: 23px solid transparent;
-    border-image: url(/images/backgrounds/vinesborder.png) 23 round;
+    border-image: url(/inulex.nekoweb.org/images/backgrounds/vinesborder.png) 23 round;
     overflow: auto;
     background-clip: padding-box;
 }
@@ -82,7 +82,7 @@ a {
   position: fixed;
   text-align: center;
   border: 23px solid transparent;
-    border-image: url(/images/backgrounds/vinesborder.png) 23 round;
+    border-image: url(/inulex.nekoweb.org/images/backgrounds/vinesborder.png) 23 round;
     overflow: auto;
     background-clip: padding-box;
 }
