@@ -232,7 +232,7 @@ a {
 
 /* Enable animation */
 .marquee__content {
-  animation: scroll 15s linear infinite;
+  animation: scroll 15~s linear infinite;
 }
 
 /* Pause on hover */
