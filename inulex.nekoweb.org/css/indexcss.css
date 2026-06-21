@@ -152,7 +152,7 @@ a {
   background: #6765c6;
   padding: 10px 12px;
   /*border: 3px double black;*/
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100px;
   position: fixed;
   text-align: center;
@@ -194,4 +194,52 @@ a {
   left: 0px;
   bottom: 0px;
   width: 200-px;
+}
+
+  /* Marquee styles */
+.marquee {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 100%;
+}
+
+.marquee__content img {
+  width: 100px;
+  margin: 0 5px 0 5px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100%));
+  }
+}
+
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Enable animation */
+.marquee__content {
+  animation: scroll 15s linear infinite;
+}
+
+/* Pause on hover */
+.marquee--hover-pause:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+a {
+  color: #30ffe8;
 }
