@@ -1,0 +1,17 @@
+@font-face { font-family: Determination; src: url('../fonts/determination.ttf'); } 
+
+
+body {
+  background: black;
+  font-family: Determination;
+  font-size: 20px;
+    color:white;
+}
+
+.container {
+  margin: auto;
+  width: 800px;
+  margin-top: 200px;
+  margin-bottom: 5px;
+    text-align:center;
+}
