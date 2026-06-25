@@ -8,11 +8,13 @@
   </head>
   <body>
     <div class="container">
+      <audio loop id="sound1" src="audio/man.ogg" preload="auto"></audio>
     <img src="images/utdr/Man_overworld_tree.gif" usemap="#image-map">
 <map name="image-map">
-    <area target="" alt="return" href="index.html" coords="145,79,77,33" shape="rect">
+    <area onclick="document.getElementById('sound1').play();" coords="145,79,77,33" shape="rect">
 </map>
     <p>* (Well, there is a page here.)</p>
     </div>
   </body>
 </html>
+ 
