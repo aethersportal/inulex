@@ -1,0 +1,136 @@
+@font-face { font-family: Galmuri11; src: url('../fonts/Galmuri11.ttf'); } 
+
+body {
+  background:url(../images/backgrounds/paper.jpg);
+  font-family: Galmuri11;
+  font-size: 15px;
+}
+
+
+/* link colors */
+a {
+  color: #FFF6B7;
+}
+
+h1{
+  color: #F70A36;
+  text-shadow: 0 0 5px #F70A36;
+  
+}
+
+.header {
+  text-align: center;
+  margin: auto;
+    margin-top: 50px;
+  width: 1200px;
+  font-size: 50px;
+  background: url(https://i.pinimg.com/1200x/c7/32/ec/c732ecd769509c27c573a61355435000.jpg);
+   height:400px;
+}
+
+/*Everything goes inside this.*/
+.contain {
+  margin: 0 auto;
+  width: 1200px;
+  height:auto;
+  margin-bottom: 5px;
+  background: #283F76;
+  text-align: center;
+  color: #FFF6B7; /*text color*/
+
+/*border-radius: 5px;   <- rounds the corners*/
+}
+
+/*Main boxes.*/
+.main {
+overflow-x: auto;
+  overflow-y:auto;
+  text-align: center;
+  /*border: 3px double black;*/
+  margin-left: 225px;
+  padding: 12px 17px;
+  
+}
+
+/*Sidebar*/
+.side {
+  background-color: #5591D1;
+overflow-x: auto;
+  padding: 0 10px 10px 10px;
+  /*border: 3px double black;*/
+  width: 200px;
+  position: absolute;
+  text-align: left;
+  height: auto;
+  /*  border-right:2px solid white;*/
+
+}
+
+.footer{
+ margin: 0 auto;
+  width: 1200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background: #283F76;
+  text-align: center;
+  padding:5px 0 5px 5px;
+  color: #FFF6B7; /*text color*/
+  height: auto;
+}
+
+
+
+/*Prevent image overflow*/
+.main img,
+.side img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* for sticky img, use <img src = "img.png" class = "sticky"> */
+.sticky {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 200-px;
+}
+
+  /* Marquee styles */
+.marquee {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  min-width: 100%;
+  animation: scroll 60s linear infinite;
+}
+
+.marquee__content img {
+  width: 100px;
+  margin: 0 5px 0 5px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100%));
+  }
+}
+
+/* Pause animation when reduced-motion is set */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__content {
+    animation-play-state: paused !important;
+  }
+}
+
+.image-container-right {
+	 float: right; 
+	 margin-left: 20px;
+   }
