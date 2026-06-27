@@ -43,6 +43,40 @@ function wobbler() {
     $( "#draggable" ).draggable();
   } );
   </script>
+<script>
+// this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
+                        
+const USERNAME = "aethersportal"; // Put your LastFM username here
+const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+
+const getTrack = async () => {
+    const request = await fetch(BASE_URL);
+    const json = await request.json();
+    let status
+
+    let isPlaying = json.track['@attr']?.nowplaying || false;
+
+    if(!isPlaying) {
+        // Trigger if a song isn't playing
+        return;
+    } else {
+        // Trigger if a song is playing
+    }
+
+    // Values:
+    // COVER IMAGE: json.track.image[1]['#text']
+    // TITLE: json.track.name
+    // ARTIST: json.track.artist['#text']
+
+    document.getElementById("listening").innerHTML = `
+    <img src="${json.track.image[1]['#text']}">
+    <div id="trackInfo">
+    <h3 id="trackName">${json.track.name}</h3>
+    <p id="artistName">${json.track.artist['#text']}</p>
+    </div>
+    `
+};
+</script> 
 
 <html lang="en">
     
@@ -53,14 +87,17 @@ email me! inulexsite@gmail.com -->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>inulex</title>
-        <link href="css/indexdemo.css" rel="stylesheet" type="text/css" media="all" />
+        <title>woof !</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
     </head>
     <body>
         <div class="header">‪‪</div>
         <div class="contain">
             <div class="marquee">
                 <ul class="marquee__content" style="list-style: none;">
+                    <li>
+                        <img src="images/stamps/areyouserious.png">
+                    </li>
                     <li>
                         <img src="images/stamps/3dsowner.jpg" />
                     </li>
@@ -159,7 +196,10 @@ email me! inulexsite@gmail.com -->
                     </li>
                 </ul>
                 <ul aria-hidden="true" class="marquee__content" style="list-style: none;">
-                     <li>
+                    <li>
+                        <img src="images/stamps/areyouserious.png">
+                    </li>
+                    <li>
                         <img src="images/stamps/3dsowner.jpg" />
                     </li>
                     <li>
@@ -259,9 +299,7 @@ email me! inulexsite@gmail.com -->
             </div>
             <div class="side">
                 <h2>಄ navigation</h2>
-                <!--<a href="https://inulex.atabook.org/">sign the guestbook</a>
-                <br><a href="graphics.html">graphics i have made</a>
-                <br><a href="favs.html">credits and favs</a>-->
+
                 <ul>
                     <li><a href="webmaster.html">about me</a></li>
                     <li><a href="transgender.html">testosterone log</a></li>
@@ -272,15 +310,16 @@ email me! inulexsite@gmail.com -->
                         </ul>
                     </li>
                     <li><a href="graphics.html">my graphics</a></li>
-                <li><a href="favs.html">credits</a></li>
+                    <li><a href="ham.html">ham radio (soon)</a></li>
+                <li><a href="https://inulex.atabook.org/">guestbook</a></li>
+                    <li><a href="favs.html">credits</a></li>
                 </ul>
                 <br>
                 <div style="text-align: center">
                     <img src="images/utdr/Floradinn_overworld_sleep.gif">
+                    <div id="listening"></div>
                     <h3>my neighbors!</h3>
-                    <a href="https://inulex.nekoweb.org/"
-                                ><img src="images/sitebutton1.png"
-                            /></a>
+
                     <a href="https://luna-uwu.nekoweb.org"
                                 ><img src="https://luna-uwu.nekoweb.org/button-luna.png" alt="Luna's Button"
                             /></a>
@@ -292,10 +331,9 @@ email me! inulexsite@gmail.com -->
             <div class="main">
                 <img src="https://files.catbox.moe/junzui.png" width="400px" class="image-container-right"/>
            <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
-            <p>im goign to put words here eventually i just dont know what i want to say yet. Lol. </p>
-            </div>
+            <p>site is a WIP! im going to put words here eventually i just dont know what i want to say yet. Lol. <br>also the banner is temporary until i draw one</p>
         </div>
-
+        </div>
         <div class="footer">
             <!--<img
                     src="https://count.camora.dev/@inulex?name=inulex&theme=original-new&padding=7&offset=0&align=center&scale=.8&pixelated=1&darkmode=auto" />-->
@@ -313,5 +351,6 @@ email me! inulexsite@gmail.com -->
                 <br><i>Last Site Update: 24 June, 2026 <br />View the <a href="changelog.html">Changelog</a>.</i>
             </p>
         </div>
+
     </body>
 </html>
