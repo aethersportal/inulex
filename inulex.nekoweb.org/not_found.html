@@ -1,14 +1,35 @@
-<!DOCTYPE html>
+<style>
+@font-face { font-family: Determination; src: url('fonts/determination.ttf'); } 
+
+
+body {
+  background: black;
+  font-family: Determination;
+  font-size: 20px;
+    color:white;
+}
+
+.container {
+  margin: auto;
+  width: 800px;
+  margin-top: 200px;
+  margin-bottom: 5px;
+    text-align:center;
+}
+
+a{
+  color: black;
+}
+</style>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Found</title>
-    <link href="css/forgotten.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
     <div class="container">
-      <audio loop id="sound1" src="audio/man.ogg" preload="auto"></audio>
+      <audio loop id="sound1" src="https://files.catbox.moe/1u1bia.ogg" preload="auto"></audio>
     <img src="images/utdr/Man_overworld_tree.gif" usemap="#image-map">
 <map name="image-map">
     <area onclick="document.getElementById('sound1').play();" coords="145,79,77,33" shape="rect">

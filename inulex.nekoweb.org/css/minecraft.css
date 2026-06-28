@@ -100,19 +100,6 @@ a {
   height: auto;
 }
 
-/*For narrower screens.*/
-@media (max-width: 850px) {
-  .container {
-    width: 700px;
-  }
-  .main {
-    margin-left: 175px;
-  }
-  .side {
-    margin-left: 1px;
-    width: 100px;
-  }
-}
 
 .return {
   text-align: center;

@@ -1,9 +1,29 @@
 @font-face { font-family: Galmuri11; src: url('../fonts/Galmuri11.ttf'); } 
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #C1ECFD; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5591D1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #326194; 
+}
+
 body {
   background:url(../images/backgrounds/paper.jpg);
   font-family: Galmuri11;
   font-size: 15px;
+  cursor: url(/inulex.nekoweb.org/cursor.png), auto !important
 }
 
 
@@ -24,27 +44,27 @@ h1{
     margin-top: 50px;
   width: 1300px;
   font-size: 50px;
-  background: url(https://i.pinimg.com/1200x/c7/32/ec/c732ecd769509c27c573a61355435000.jpg);
-   height:400px;
+  background: url(https://files.catbox.moe/xxppjx.png);
+   height:200px;
 }
 
 /*Everything goes inside this.*/
 .contain {
-  margin: 0 auto;
+  margin: auto;
   width: 1300px;
   height:auto;
   margin-bottom: 5px;
   background: #283F76;
   text-align: center;
   color: #FFF6B7; /*text color*/
+  position: relative;
 
 /*border-radius: 5px;   <- rounds the corners*/
 }
 
 /*Main boxes.*/
 .main {
-overflow-x: auto;
-  overflow-y:auto;
+  overflow-x: auto;
   text-align: center;
   /*border: 3px double black;*/
   margin-left: 225px;
@@ -52,19 +72,49 @@ overflow-x: auto;
   
 }
 
+.sections{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+}
+
+.sections div {
+  color:#283F76;
+  background-color: #C1ECFD;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  width: 300px;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.sections h3{
+  color:#F70A36;
+  text-decoration: underline solid #283F76 2px;
+}
+
 /*Sidebar*/
 .side {
   background-color: #5591D1;
-overflow-x: auto;
+  overflow-x: auto;
   padding: 0 10px 10px 10px;
   /*border: 3px double black;*/
   width: 200px;
   position: absolute;
   text-align: left;
-  height: auto;
+  height: 800px;
   list-style: none;
   /*  border-right:2px solid white;*/
 
+}
+
+.mainextend {
+  overflow-x: auto;
+  text-align: center;
+  /*border: 3px double black;*/
+  padding: 12px 17px;
+  
 }
 
 .footer{
@@ -77,23 +127,6 @@ overflow-x: auto;
   padding:5px 0 5px 5px;
   color: #FFF6B7; /*text color*/
   height: auto;
-}
-
-
-
-/*Prevent image overflow*/
-.main img,
-.side img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* for sticky img, use <img src = "img.png" class = "sticky"> */
-.sticky {
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  width: 200-px;
 }
 
   /* Marquee styles */

@@ -2,7 +2,6 @@
 // <![CDATA[
 var speed=100; // speed of wobbling, lower is faster
 var height=3; // height of wobbling in pixels
-var alink="http://www.mf2fm.com/rv"; // page to link text to (set to ="" for no link)
 
 /****************************
 *    Wobbly Text Effect     *
@@ -21,10 +20,6 @@ window.onload=function() { if (document.getElementById) {
     wobli.setAttribute("id", "wobb"+i);
     wobli.style.position="relative";
     wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
-    if (alink) {
-      wobli.style.cursor="pointer";
-      wobli.onclick=function() { top.location.href=alink; }
-    }
     wobble.appendChild(wobli);
   }
   setInterval("wobbler()", speed);
@@ -55,14 +50,7 @@ const getTrack = async () => {
     let status
 
     let isPlaying = json.track['@attr']?.nowplaying || false;
-
-    if(!isPlaying) {
-        // Trigger if a song isn't playing
-        return;
-    } else {
-        // Trigger if a song is playing
-    }
-
+    
     // Values:
     // COVER IMAGE: json.track.image[1]['#text']
     // TITLE: json.track.name
@@ -91,8 +79,10 @@ email me! inulexsite@gmail.com -->
         <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
     </head>
     <body>
+        <audio id="bark" src="audio/bark.mp3" preload="auto"></audio>
         <div class="header">‪‪</div>
         <div class="contain">
+            <img src="images/xanderPoint.png" width="250px" style="position: absolute; left: 1150px; top: 700px; z-index: 1">
             <div class="marquee">
                 <ul class="marquee__content" style="list-style: none;">
                     <li>
@@ -102,85 +92,85 @@ email me! inulexsite@gmail.com -->
                         <img src="images/stamps/3dsowner.jpg" />
                     </li>
                     <li>
-                        <img src="images/stamps/4ever%20online.png" />
+                        <img src="images/stamps/4everOnline.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/aperture%20science.png" />
+                        <img src="images/stamps/apertureScience.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/are%20you%20sure.webp" />
+                        <img src="images/stamps/areYouSure.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/binding%20of%20issac.png" />
+                        <img src="images/stamps/bindingofissac.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/breath%20of%20the%20wild.gif" />
+                        <img src="images/stamps/botwlink.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/crack%20cocaine.png" />
+                        <img src="images/stamps/crackCocaine.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/ctrl%20z.png" />
+                        <img src="images/stamps/ctrlZ.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/dante%20limbus%20company.png" />
+                        <img src="images/stamps/danteLimbus.png" />
                     </li>
                     <li>
                         <img src="images/stamps/diagonalkris.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/glados%20portal%202.png" />
+                        <img src="images/stamps/gladosPortal.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/hatsune%20miku%20concert.webp" />
+                        <img src="images/stamps/mikuConcert.webp" />
                     </li>
                     <li>
                         <img src="images/stamps/krissusiedeltarune.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/lineart%20button.png" />
+                        <img src="images/stamps/lineartButton.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/minecraft%20chicken%20jockey.webp" />
+                        <img src="images/stamps/chickenJockey.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/navy%20seal%20copypasta.png" />
+                        <img src="images/stamps/navySeal.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/neko%20atsume.gif" />
+                        <img src="images/stamps/nekoAtsume.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/nyan%20neko%20sugar%20girls.png" />
+                        <img src="images/stamps/NNSG.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/nyancat%20portal.gif" />
+                        <img src="images/stamps/nyanPortal.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/oc%20baby.png" />
+                        <img src="images/stamps/ocBaby.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/paint%20fan.jpg" />
+                        <img src="images/stamps/paintFan.jpg" />
                     </li>
                     <li>
-                        <img src="images/stamps/pyro%20tf2.gif" />
+                        <img src="images/stamps/pyroTf2.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/saiki%20k.png" />
+                        <img src="images/stamps/saikiK.png" />
                     </li>
                     <li>
                         <img src="images/stamps/splatoon.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/squiggle%20stamp.jpg" />
+                        <img src="images/stamps/squiggle.jpg" />
                     </li>
                     <li>
                         <img src="images/stamps/susiepancakes.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/tumblr%20sexymen.webp" />
+                        <img src="images/stamps/tumblrSexymen.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/valve%20games.webp" />
+                        <img src="images/stamps/valveGames.webp" />
                     </li>
                     <li>
                         <img src="images/stamps/vaporeon.gif" />
@@ -189,99 +179,99 @@ email me! inulexsite@gmail.com -->
                         <img src="images/stamps/winggaster.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/world%20is%20mine.webp" />
+                        <img src="images/stamps/worldMine.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/yaoi%20warning.png" />
+                        <img src="images/stamps/yaoiWarn.png" />
                     </li>
                 </ul>
                 <ul aria-hidden="true" class="marquee__content" style="list-style: none;">
-                    <li>
+                      <li>
                         <img src="images/stamps/areyouserious.png">
                     </li>
                     <li>
                         <img src="images/stamps/3dsowner.jpg" />
                     </li>
                     <li>
-                        <img src="images/stamps/4ever%20online.png" />
+                        <img src="images/stamps/4everOnline.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/aperture%20science.png" />
+                        <img src="images/stamps/apertureScience.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/are%20you%20sure.webp" />
+                        <img src="images/stamps/areYouSure.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/binding%20of%20issac.png" />
+                        <img src="images/stamps/bindingofissac.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/breath%20of%20the%20wild.gif" />
+                        <img src="images/stamps/botwlink.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/crack%20cocaine.png" />
+                        <img src="images/stamps/crackCocaine.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/ctrl%20z.png" />
+                        <img src="images/stamps/ctrlZ.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/dante%20limbus%20company.png" />
+                        <img src="images/stamps/danteLimbus.png" />
                     </li>
                     <li>
                         <img src="images/stamps/diagonalkris.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/glados%20portal%202.png" />
+                        <img src="images/stamps/gladosPortal.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/hatsune%20miku%20concert.webp" />
+                        <img src="images/stamps/mikuConcert.webp" />
                     </li>
                     <li>
                         <img src="images/stamps/krissusiedeltarune.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/lineart%20button.png" />
+                        <img src="images/stamps/lineartButton.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/minecraft%20chicken%20jockey.webp" />
+                        <img src="images/stamps/chickenJockey.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/navy%20seal%20copypasta.png" />
+                        <img src="images/stamps/navySeal.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/neko%20atsume.gif" />
+                        <img src="images/stamps/nekoAtsume.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/nyan%20neko%20sugar%20girls.png" />
+                        <img src="images/stamps/NNSG.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/nyancat%20portal.gif" />
+                        <img src="images/stamps/nyanPortal.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/oc%20baby.png" />
+                        <img src="images/stamps/ocBaby.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/paint%20fan.jpg" />
+                        <img src="images/stamps/paintFan.jpg" />
                     </li>
                     <li>
-                        <img src="images/stamps/pyro%20tf2.gif" />
+                        <img src="images/stamps/pyroTf2.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/saiki%20k.png" />
+                        <img src="images/stamps/saikiK.png" />
                     </li>
                     <li>
                         <img src="images/stamps/splatoon.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/squiggle%20stamp.jpg" />
+                        <img src="images/stamps/squiggle.jpg" />
                     </li>
                     <li>
                         <img src="images/stamps/susiepancakes.gif" />
                     </li>
                     <li>
-                        <img src="images/stamps/tumblr%20sexymen.webp" />
+                        <img src="images/stamps/tumblrSexymen.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/valve%20games.webp" />
+                        <img src="images/stamps/valveGames.webp" />
                     </li>
                     <li>
                         <img src="images/stamps/vaporeon.gif" />
@@ -290,22 +280,21 @@ email me! inulexsite@gmail.com -->
                         <img src="images/stamps/winggaster.png" />
                     </li>
                     <li>
-                        <img src="images/stamps/world%20is%20mine.webp" />
+                        <img src="images/stamps/worldMine.webp" />
                     </li>
                     <li>
-                        <img src="images/stamps/yaoi%20warning.png" />
+                        <img src="images/stamps/yaoiWarn.png" />
                     </li>
                 </ul>
             </div>
             <div class="side">
                 <h2>಄ navigation</h2>
-
                 <ul>
                     <li><a href="webmaster.html">about me</a></li>
                     <li><a href="transgender.html">testosterone log</a></li>
                     <li>shrines
                     <ul>
-                        <li><a href="utdr.html">deltarune</a></li>
+                        <li><a href="deltarune.html">deltarune</a></li>
                         <li><a href="minecraft.html">minecraft</a></li>
                         </ul>
                     </li>
@@ -318,21 +307,57 @@ email me! inulexsite@gmail.com -->
                 <div style="text-align: center">
                     <img src="images/utdr/Floradinn_overworld_sleep.gif">
                     <div id="listening"></div>
-                    <h3>my neighbors!</h3>
+                    <h3>my neighborhood</h3>
 
                     <a href="https://luna-uwu.nekoweb.org"
                                 ><img src="https://luna-uwu.nekoweb.org/button-luna.png" alt="Luna's Button"
                             /></a>
-                <br><span style="font-size: 10px">let's be neighbors!<br>email me inulexsite@gmail.com</span>
                 </div>
             
             </div>
             
             <div class="main">
-                <img src="https://files.catbox.moe/junzui.png" width="400px" class="image-container-right"/>
-           <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
-            <p>site is a WIP! im going to put words here eventually i just dont know what i want to say yet. Lol. <br>also the banner is temporary until i draw one</p>
-        </div>
+                <img src="https://files.catbox.moe/junzui.png" onclick="document.getElementById('bark').play();" width="400px" class="image-container-right" z-index="1"/>
+                <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
+            <p>hello! my name is alexander, but you can just say alex. inulex is a personal site that is ever-changing, and i'm glad you're here to visit!  
+                <br>(the  banner above is temporary... sorry)</p>
+            <p>while ur here add my site button (until i put it somewhere better).
+                <br><img src="/inulex.nekoweb.org/images/sitebutton1.png">
+                <textarea readonly>&lt;a href="https://inulex.nekoweb.org/"&gt;&lt;img src="https://inulex.nekoweb.org/images/sitebutton1.png"&gt;&lt;/a&gt;</textarea></p>
+            <div class="sections">
+                <div><h3>currently</h3>
+                <p style="text-align: left">
+                <b>playing?</b> deltarune ch5 and ISAT
+                <br><br><b>watching?</b> dungeon meshi
+                <br><br><b>reading?</b> and they were roomates by page powars
+                <br><br><b>coding?</b> improving the site with my better html/css knowledge, and seeing how much stuff i can fit in one page (this one) (its a lot)
+                </p></div>
+                <div><h3>to-do</h3>
+                <ul style="text-align: left">
+                    <li>join webrings...</li>
+                    <li>move some of my bigger files to catbox</li>
+                </ul>
+                </div>
+                <div><h3>fanlistings</h3>
+                    <a href="http://fan.midnight-cloud.net/portal2/"><img src="images/fanlistings/portal2.png"></a>
+                    <a href="http://movieloverfls.org/3ds"><img src="images/fanlistings/3ds.jpg"></a>
+                    <a href="https://fan.moonkiss.org/utdr/"><img src="images/fanlistings/utdr.png"></a>
+                    <br><a href="https://fanlistings.melankorin.net/minecraft/"><img src="images/fanlistings/minecraft.png"></a>
+                    <a href="https://pogo.fanfreak.net/"><img src="images/fanlistings/pokego.png"></a>
+                    <a href="https://fan.enamour.nu/vaporeon"><img src="images/fanlistings/vaporeon.png"></a>
+                </div>
+                <div><h3>webrings</h3>
+                    <a href="https://coffeebug.neocities.org/webring"><img src="https://coffeebug.neocities.org/webring.gif"></a>
+                    <div id='gfdkris'> <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script><script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script>
+              </div>
+            </div>
+    
+                </div>
+            
+            </div>
+            <div class="mainextend">
+            down here will have something interesting eventually
+            </div>
         </div>
         <div class="footer">
             <!--<img
@@ -346,9 +371,11 @@ email me! inulexsite@gmail.com -->
                 <img src="images/buttons/graphicdesign.png" />
                 <img src="images/buttons/css2.png" />
                 <img src="images/buttons/paws.png" />
+                <img src="images/buttons/testosterone.gif" />
+                
             </p>
-            <p>Coded with blood, sweat, and tears. It's shitty but it's mine.
-                <br><i>Last Site Update: 24 June, 2026 <br />View the <a href="changelog.html">Changelog</a>.</i>
+            <p>Site by Alexander @aethersportal
+                <br><i>Last Site Update: 24 June, 2026 <br />View the <a href="changelog.html">Changelog</a>. <a href="https://nekoweb.org/follow/inulex.nekoweb.org">Follow me</a>  on nekoweb!</i>
             </p>
         </div>
 
