@@ -1,77 +1,81 @@
 <script type="text/javascript">
-// <![CDATA[
-var speed=100; // speed of wobbling, lower is faster
-var height=3; // height of wobbling in pixels
+    // <![CDATA[
+    var speed = 100; // speed of wobbling, lower is faster
+    var height = 3; // height of wobbling in pixels
 
-/****************************
-*    Wobbly Text Effect     *
-*(c) 2003-6 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-****************************/
-var wobtxt, wobble, wobcnt=0;
-window.onload=function() { if (document.getElementById) {
-  var i, wobli;
-  wobble=document.getElementById("wobble");
-  wobtxt=wobble.firstChild.nodeValue;
-  while (wobble.childNodes.length) wobble.removeChild(wobble.childNodes[0]);
-  for (i=0; i<wobtxt.length; i++) {
-    wobli=document.createElement("span");
-    wobli.setAttribute("id", "wobb"+i);
-    wobli.style.position="relative";
-    wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
-    wobble.appendChild(wobli);
-  }
-  setInterval("wobbler()", speed);
-}}
+    /****************************
+     *    Wobbly Text Effect     *
+     *(c) 2003-6 mf2fm web-design*
+     *  http://www.mf2fm.com/rv  *
+     * DON'T EDIT BELOW THIS BOX *
+     ****************************/
+    var wobtxt,
+        wobble,
+        wobcnt = 0;
+    window.onload = function () {
+        if (document.getElementById) {
+            var i, wobli;
+            wobble = document.getElementById("wobble");
+            wobtxt = wobble.firstChild.nodeValue;
+            while (wobble.childNodes.length) wobble.removeChild(wobble.childNodes[0]);
+            for (i = 0; i < wobtxt.length; i++) {
+                wobli = document.createElement("span");
+                wobli.setAttribute("id", "wobb" + i);
+                wobli.style.position = "relative";
+                wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
+                wobble.appendChild(wobli);
+            }
+            setInterval("wobbler()", speed);
+        }
+    };
 
-function wobbler() {
-  for (var i=0; i<wobtxt.length; i++) document.getElementById("wobb"+i).style.top=Math.round(height*Math.sin(i+wobcnt))+"px"
-  wobcnt++;
-}
-// ]]>
+    function wobbler() {
+        for (var i = 0; i < wobtxt.length; i++)
+            document.getElementById("wobb" + i).style.top = Math.round(height * Math.sin(i + wobcnt)) + "px";
+        wobcnt++;
+    }
+    // ]]>
 </script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#draggable" ).draggable();
-  } );
-  </script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
 <script>
-// this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
-                        
-const USERNAME = "aethersportal"; // Put your LastFM username here
-const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+    $(function () {
+        $("#draggable").draggable();
+    });
+</script>
+<script>
+    // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
 
-const getTrack = async () => {
-    const request = await fetch(BASE_URL);
-    const json = await request.json();
-    let status
+    const USERNAME = "aethersportal"; // Put your LastFM username here
+    const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
 
-    let isPlaying = json.track['@attr']?.nowplaying || false;
-    
-    // Values:
-    // COVER IMAGE: json.track.image[1]['#text']
-    // TITLE: json.track.name
-    // ARTIST: json.track.artist['#text']
+    const getTrack = async () => {
+        const request = await fetch(BASE_URL);
+        const json = await request.json();
+        let status;
 
-    document.getElementById("listening").innerHTML = `
-    <img src="${json.track.image[1]['#text']}">
+        let isPlaying = json.track["@attr"]?.nowplaying || false;
+
+        // Values:
+        // COVER IMAGE: json.track.image[1]['#text']
+        // TITLE: json.track.name
+        // ARTIST: json.track.artist['#text']
+
+        document.getElementById("listening").innerHTML = `
+    <img src="${json.track.image[1]["#text"]}">
     <div id="trackInfo">
     <h3 id="trackName">${json.track.name}</h3>
-    <p id="artistName">${json.track.artist['#text']}</p>
+    <p id="artistName">${json.track.artist["#text"]}</p>
     </div>
-    `
-};
-</script> 
+    `;
+    };
+</script>
 
 <html lang="en">
-    
-<!-- hi! welcome to my mess of code. 
+    <!-- hi! welcome to my mess of code. 
 any issues? anything i could do better? (probably)
 email me! inulexsite@gmail.com -->
-    
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -82,11 +86,14 @@ email me! inulexsite@gmail.com -->
         <audio id="bark" src="audio/greaterdog.mp3" preload="auto"></audio>
         <div class="header">‪‪</div>
         <div class="contain">
-            <img src="images/xanderPoint.png" width="250px" style="position: absolute; left: 1150px; top: 700px; z-index: 1">
+            <img
+                src="images/xanderPoint.png"
+                width="250px"
+                style="position: absolute; left: 1150px; top: 700px; z-index: 1" />
             <div class="marquee">
-                <ul class="marquee__content" style="list-style: none;">
+                <ul class="marquee__content" style="list-style: none">
                     <li>
-                        <img src="images/stamps/areyouserious.png">
+                        <img src="images/stamps/areyouserious.png" />
                     </li>
                     <li>
                         <img src="images/stamps/3dsowner.jpg" />
@@ -185,9 +192,9 @@ email me! inulexsite@gmail.com -->
                         <img src="images/stamps/yaoiWarn.png" />
                     </li>
                 </ul>
-                <ul aria-hidden="true" class="marquee__content" style="list-style: none;">
-                      <li>
-                        <img src="images/stamps/areyouserious.png">
+                <ul aria-hidden="true" class="marquee__content" style="list-style: none">
+                    <li>
+                        <img src="images/stamps/areyouserious.png" />
                     </li>
                     <li>
                         <img src="images/stamps/3dsowner.jpg" />
@@ -292,73 +299,116 @@ email me! inulexsite@gmail.com -->
                 <ul>
                     <li><a href="webmaster.html">about me</a></li>
                     <li><a href="transgender.html">testosterone log</a></li>
-                    <li>shrines
-                    <ul>
-                        <li><a href="deltarune.html">deltarune</a></li>
-                        <li><a href="minecraft.html">minecraft</a></li>
-                        <li><span style="color:rgba(255, 246, 183, 0.5);">exociety</span></li>
-                        <li><span style="color:rgba(255, 246, 183, 0.5);">youtube</span></li>
+                    <li>
+                        shrines
+                        <ul>
+                            <li><a href="deltarune.html">deltarune</a></li>
+                            <li><a href="minecraft.html">minecraft</a></li>
+                            <li><span style="color: rgba(255, 246, 183, 0.5)">exociety</span></li>
+                            <li><span style="color: rgba(255, 246, 183, 0.5)">youtube</span></li>
                         </ul>
                     </li>
                     <li><a href="graphics.html">my graphics</a></li>
                     <li><a href="ham.html">ham radio (soon)</a></li>
-                <li><a href="https://inulex.atabook.org/">guestbook</a></li>
+                    <li><a href="https://inulex.atabook.org/">guestbook</a></li>
                     <li><a href="favs.html">credits</a></li>
                 </ul>
-                <br>
+                <br />
                 <div style="text-align: center">
-                    <a href="https://bungle.online/clique"><img src="images/computerangel.png" alt="Angel resting upon a computer"></a>
+                    <a href="https://bungle.online/clique"
+                        ><img src="images/computerangel.png" alt="Angel resting upon a computer"
+                    /></a>
                     <div id="listening"></div>
                     <h3>my neighborhood</h3>
-
+                    <iframe
+                        width="88"
+                        height="31"
+                        style="border: none"
+                        src="https://melonsoda.nekoweb.org/button.html"
+                        name="buttonlink"></iframe>
                     <a href="https://luna-uwu.nekoweb.org"
-                                ><img src="https://luna-uwu.nekoweb.org/button-luna.png" alt="Luna's Button"
-                            /></a>
+                        ><img src="https://luna-uwu.nekoweb.org/button-luna.png" alt="Luna's Button"
+                    /></a>
                 </div>
-            
             </div>
-            
-            <div class="main">
-                <img src="images/utdr/Floradinn_overworld_sleep.gif" style="position: absolute; margin-top: 475px; margin-left: 15px;">
-                <img src="https://files.catbox.moe/junzui.png" onclick="document.getElementById('bark').play();" width="400px" class="image-container-right" z-index="1"/>
-                <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
-            <p>hello! my name is alexander, but you can just say alex. inulex is a personal site that is ever-changing, and i'm glad you're here to visit!  
-                <br>(the  banner above is temporary... sorry)</p>
-            <p>while ur here add my site button (until i put it somewhere better).
-                <br><img src="images/sitebutton1.png">
-                <textarea readonly>&lt;a href="https://inulex.nekoweb.org/"&gt;&lt;img src="https://inulex.nekoweb.org/images/sitebutton1.png"&gt;&lt;/a&gt;</textarea></p>
-            <div class="sections">
-                <div><h3>currently</h3>
-                <p style="text-align: left">
-                <b>playing?</b> deltarune ch5 and ISAT
-                <br><br><b>watching?</b> dungeon meshi
-                <br><br><b>reading?</b> and they were roomates by page powars
-                <br><br><b>coding?</b> improving the site with my better html/css knowledge, and seeing how much stuff i can fit in one page (this one) (its a lot)
-                </p></div>
-                <div><h3>to-do</h3>
-                <ul style="text-align: left">
-                    <li>join webrings...</li>
-                    <li>move some of my bigger files to catbox</li>
-                </ul>
-                </div>
-                <div><h3>fanlistings</h3>
-                    <a href="http://fan.midnight-cloud.net/portal2/"><img src="images/fanlistings/portal2.png"></a>
-                    <br>currently unapproved -&gt;
-                    <a href="http://movieloverfls.org/3ds"><img src="images/fanlistings/3ds.jpg"></a>
-                    <a href="https://fan.moonkiss.org/utdr/"><img src="images/fanlistings/utdr.png"></a>
-                    <a href="https://fanlistings.melankorin.net/minecraft/"><img src="images/fanlistings/minecraft.png"></a>
-                    <a href="https://pogo.fanfreak.net/"><img src="images/fanlistings/pokego.png"></a>
-                    <a href="https://fan.enamour.nu/vaporeon"><img src="images/fanlistings/vaporeon.png"></a>
-                    <a href="https://fan.ballonlea.net/isat/"><img src="images/fanlistings/isat.png"></a>
-                </div>
-                <div><h3>webrings</h3>
-                <!-- GFDKWTFAW-->  <div id='gfdkris'> <script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script><script type="text/javascript" src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script></div>
-                <!-- OTAKURING -->  <div id='OtakuRing'><script type="text/javascript" src="https://bishoujopalace.neocities.org/WebRing/onionring/onionring-variables.js"></script><script type="text/javascript" src="https://bishoujopalace.neocities.org/WebRing/onionring/onionring-widget.js"></script><script>document.getElementById('Icon').src="HERE";></script></div> 
 
+            <div class="main">
+                <img
+                    src="images/utdr/Floradinn_overworld_sleep.gif"
+                    style="position: absolute; margin-top: 475px; margin-left: 15px" />
+                <img
+                    src="https://files.catbox.moe/junzui.png"
+                    onclick="document.getElementById('bark').play();"
+                    width="400px"
+                    class="image-container-right"
+                    z-index="1" />
+                <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
+                <p>
+                    hello! my name is alexander, but you can just say alex. inulex is a personal site that is
+                    ever-changing, and i'm glad you're here to visit! <br />(the banner above is temporary... sorry)
+                </p>
+                <p>
+                    while ur here add my site button (until i put it somewhere better). <br /><img
+                        src="images/sitebutton1.png" />
+                    <textarea readonly>&lt;a href="https://inulex.nekoweb.org/"&gt;&lt;img src="https://inulex.nekoweb.org/images/sitebutton1.png"&gt;&lt;/a&gt;</textarea>
+                </p>
+                <div class="sections">
+                    <div class="sectionsbox">
+                        <h3>currently</h3>
+                        <p style="text-align: left">
+                            <b>playing?</b> deltarune ch5 and ISAT <br /><br /><b>watching?</b> dungeon meshi
+                            <br /><br /><b>reading?</b> and they were roomates by page powars <br /><br /><b>coding?</b>
+                            improving the site with my better html/css knowledge, and seeing how much stuff i can fit in
+                            one page (this one) (its a lot)
+                        </p>
+                    </div>
+                    <div class="sectionsbox">
+                        <h3>to-do</h3>
+                        <ul style="text-align: left">
+                            <li>join webrings...</li>
+                            <li>move some of my bigger files to catbox</li>
+                        </ul>
+                    </div>
+                    <div class="sectionsbox">
+                        <h3>fanlistings</h3>
+                        <a href="http://fan.midnight-cloud.net/portal2/"
+                            ><img src="images/fanlistings/portal2.png"
+                        /></a>
+                        <br />currently unapproved -&gt;
+                        <a href="http://movieloverfls.org/3ds"><img src="images/fanlistings/3ds.jpg" /></a>
+                        <a href="https://fan.moonkiss.org/utdr/"><img src="images/fanlistings/utdr.png" /></a>
+                        <a href="https://fanlistings.melankorin.net/minecraft/"
+                            ><img src="images/fanlistings/minecraft.png"
+                        /></a>
+                        <a href="https://pogo.fanfreak.net/"><img src="images/fanlistings/pokego.png" /></a>
+                        <a href="https://fan.enamour.nu/vaporeon"><img src="images/fanlistings/vaporeon.png" /></a>
+                        <a href="https://fan.ballonlea.net/isat/"><img src="images/fanlistings/isat.png" /></a>
+                    </div>
+                    <div class="sectionsbox">
+                        <h3>webrings</h3>
+                        <!-- GFDKWTFAW-->
+                        <div id="gfdkris">
+                            <script
+                                type="text/javascript"
+                                src="https://fabstarotcorner.neocities.org/webring/onionring-variables.js"></script>
+                            <script
+                                type="text/javascript"
+                                src="https://fabstarotcorner.neocities.org/webring/onionring-widget.js"></script>
+                        </div>
+                        <!-- OTAKURING -->
+                        <div id="OtakuRing">
+                            <script
+                                type="text/javascript"
+                                src="https://bishoujopalace.neocities.org/WebRing/onionring/onionring-variables.js"></script>
+                            <script
+                                type="text/javascript"
+                                src="https://bishoujopalace.neocities.org/WebRing/onionring/onionring-widget.js"></script>
+                            <script>
+                                document.getElementById('Icon').src="HERE";>
+                            </script>
+                        </div>
+                    </div>
                 </div>
-    
-                </div>
-            
             </div>
         </div>
         <div class="footer">
@@ -374,12 +424,13 @@ email me! inulexsite@gmail.com -->
                 <img src="images/buttons/css2.png" />
                 <img src="images/buttons/paws.png" />
                 <img src="images/buttons/testosterone.gif" />
-                
             </p>
-            <p>Site by Alexander @aethersportal
-                <br><i>Last Site Update: 28 June, 2026 <br />View the <a href="changelog.html">Changelog</a>. <a href="https://nekoweb.org/follow/inulex.nekoweb.org">Follow me</a>  on nekoweb!</i>
+            <p>
+                Site by Alexander @aethersportal <br /><i
+                    >Last Site Update: 28 June, 2026 <br />View the <a href="changelog.html">Changelog</a>.
+                    <a href="https://nekoweb.org/follow/inulex.nekoweb.org">Follow me</a> on nekoweb!</i
+                >
             </p>
         </div>
-
     </body>
 </html>

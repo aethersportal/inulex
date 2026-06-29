@@ -1,72 +1,77 @@
 <script type="text/javascript">
-// <![CDATA[
-var speed=100; // speed of wobbling, lower is faster
-var height=3; // height of wobbling in pixels
+    // <![CDATA[
+    var speed = 100; // speed of wobbling, lower is faster
+    var height = 3; // height of wobbling in pixels
 
-/****************************
-*    Wobbly Text Effect     *
-*(c) 2003-6 mf2fm web-design*
-*  http://www.mf2fm.com/rv  *
-* DON'T EDIT BELOW THIS BOX *
-****************************/
-var wobtxt, wobble, wobcnt=0;
-window.onload=function() { if (document.getElementById) {
-  var i, wobli;
-  wobble=document.getElementById("wobble");
-  wobtxt=wobble.firstChild.nodeValue;
-  while (wobble.childNodes.length) wobble.removeChild(wobble.childNodes[0]);
-  for (i=0; i<wobtxt.length; i++) {
-    wobli=document.createElement("span");
-    wobli.setAttribute("id", "wobb"+i);
-    wobli.style.position="relative";
-    wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
-    wobble.appendChild(wobli);
-  }
-  setInterval("wobbler()", speed);
-}}
+    /****************************
+     *    Wobbly Text Effect     *
+     *(c) 2003-6 mf2fm web-design*
+     *  http://www.mf2fm.com/rv  *
+     * DON'T EDIT BELOW THIS BOX *
+     ****************************/
+    var wobtxt,
+        wobble,
+        wobcnt = 0;
+    window.onload = function () {
+        if (document.getElementById) {
+            var i, wobli;
+            wobble = document.getElementById("wobble");
+            wobtxt = wobble.firstChild.nodeValue;
+            while (wobble.childNodes.length) wobble.removeChild(wobble.childNodes[0]);
+            for (i = 0; i < wobtxt.length; i++) {
+                wobli = document.createElement("span");
+                wobli.setAttribute("id", "wobb" + i);
+                wobli.style.position = "relative";
+                wobli.appendChild(document.createTextNode(wobtxt.charAt(i)));
+                wobble.appendChild(wobli);
+            }
+            setInterval("wobbler()", speed);
+        }
+    };
 
-function wobbler() {
-  for (var i=0; i<wobtxt.length; i++) document.getElementById("wobb"+i).style.top=Math.round(height*Math.sin(i+wobcnt))+"px"
-  wobcnt++;
-}
-// ]]>
+    function wobbler() {
+        for (var i = 0; i < wobtxt.length; i++)
+            document.getElementById("wobb" + i).style.top = Math.round(height * Math.sin(i + wobcnt)) + "px";
+        wobcnt++;
+    }
+    // ]]>
 </script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#draggable" ).draggable();
-  } );
-  </script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
 <script>
-// this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
-                        
-const USERNAME = "aethersportal"; // Put your LastFM username here
-const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
+    $(function () {
+        $("#draggable").draggable();
+    });
+</script>
+<script>
+    // this script is under the MIT license (https://max.nekoweb.org/resources/license.txt)
 
-const getTrack = async () => {
-    const request = await fetch(BASE_URL);
-    const json = await request.json();
-    let status
+    const USERNAME = "aethersportal"; // Put your LastFM username here
+    const BASE_URL = `https://lastfm-last-played.biancarosa.com.br/${USERNAME}/latest-song`;
 
-    let isPlaying = json.track['@attr']?.nowplaying || false;
-    
-    // Values:
-    // COVER IMAGE: json.track.image[1]['#text']
-    // TITLE: json.track.name
-    // ARTIST: json.track.artist['#text']
+    const getTrack = async () => {
+        const request = await fetch(BASE_URL);
+        const json = await request.json();
+        let status;
 
-    document.getElementById("listening").innerHTML = `
-    <img src="${json.track.image[1]['#text']}">
+        let isPlaying = json.track["@attr"]?.nowplaying || false;
+
+        // Values:
+        // COVER IMAGE: json.track.image[1]['#text']
+        // TITLE: json.track.name
+        // ARTIST: json.track.artist['#text']
+
+        document.getElementById("listening").innerHTML = `
+    <img src="${json.track.image[1]["#text"]}">
     <div id="trackInfo">
     <h3 id="trackName">${json.track.name}</h3>
-    <p id="artistName">${json.track.artist['#text']}</p>
+    <p id="artistName">${json.track.artist["#text"]}</p>
     </div>
-    `
-};
-</script> 
+    `;
+    };
+</script>
 
-<html lang="en">    
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,55 +80,80 @@ const getTrack = async () => {
     </head>
     <body>
         <div class="header">‪‪</div>
-        <div class="contain">          
-             <div class="side">
+        <div class="contain">
+            <div class="side">
                 <h2>಄ fun stuffs</h2>
-                 <div style="text-align: center;">
-                <img src="images/blinkies/certifiedPuppy.gif">
-                     <img src="images/blinkies/blinkie17.gif">
-                     <img src="images/blinkies/e3.gif">
-                     <img src="images/blinkies/fish.gif">
-                     <img src="images/blinkies/girlfriend.gif">
-                     <img src="images/blinkies/nepeta.gif">
-                     <img src="images/blinkies/z14.webp">
-                     <img src="images/blinkies/lovemycomputer.webp">
-                     <img src="images/blinkies/soul.webp">
-                     <img src="images/blinkies/watdatmean.gif">
-                     <img src="images/blinkies/awoooooo.webp">
-                     <img src="images/blinkies/canyoubelieveit.webp">
-                     <img src="images/blinkies/sex.webp">
-                     <img src="images/blinkies/floradinn.webp">
-                 </div>
+                <div style="text-align: center">
+                    <img src="images/blinkies/certifiedPuppy.gif" />
+                    <img src="images/blinkies/blinkie17.gif" />
+                    <img src="images/blinkies/e3.gif" />
+                    <img src="images/blinkies/fish.gif" />
+                    <img src="images/blinkies/girlfriend.gif" />
+                    <img src="images/blinkies/nepeta.gif" />
+                    <img src="images/blinkies/z14.webp" />
+                    <img src="images/blinkies/lovemycomputer.webp" />
+                    <img src="images/blinkies/soul.webp" />
+                    <img src="images/blinkies/watdatmean.gif" />
+                    <img src="images/blinkies/awoooooo.webp" />
+                    <img src="images/blinkies/canyoubelieveit.webp" />
+                    <img src="images/blinkies/sex.webp" />
+                    <img src="images/blinkies/floradinn.webp" />
                 </div>
+                <p><a href="index.html">return home</a></p>
+            </div>
             <div class="main">
-                <img src="https://files.catbox.moe/nyjvuf.png" onclick="document.getElementById('bark').play();" width="400px" class="image-container-left" z-index="1"/>
-                <img src="images/utdr/Kris_battle_wan.png" style="position: absolute; left: 300px; top: 800px; z-index: 1">
+                <img
+                    src="https://files.catbox.moe/nyjvuf.png"
+                    onclick="document.getElementById('bark').play();"
+                    width="400px"
+                    class="image-container-left"
+                    z-index="1" />
+                <img
+                    src="images/utdr/Kris_battle_wan.png"
+                    style="position: absolute; left: 300px; top: 800px; z-index: 1" />
                 <h1><span id="wobble">meet the webmaster!</span></h1>
-            <p>as stated on my index, my name is alexander, but most people call me alex. im an 18-year-old indieweb enjoyer, and i like to code in my free time.  
-                <br>i am a second-year music education major, aand hope to be an orchestra teacher!</p>
-            <p> this page is a wip i just want to publish it</p>
+                <p>
+                    as stated on my index, my name is alexander, but most people call me alex. im an 18-year-old
+                    indieweb enjoyer, and i like to code in my free time. <br />i am a second-year music education
+                    major, aand hope to be an orchestra teacher!
+                </p>
+                <p>this page is a wip i just want to publish it</p>
                 <div class="sections">
-                <div><h3>me me me</h3>
-                <b>birthday:</b> dec 28
-                <br><b>primary instrument:</b> viola
-                <br><b>fav anime:</b> pop team epic
-                <br><b>fav song:</b> antonymph by vylet pony
-                <br><br><b>characters that are lit me:</b>
-                    <ul style="text-align: left;  padding-left: 100px; padding-right: 10px">
-                        <li>kris dreamurr</li>
-                        <li>hajime hinata</li>
-                        <li>yuuji itadori</li>
-                        <li>momo ayase</li>
-                    </ul>
-                </div>
-                <div><h3>fun facts</h3>
-                <ul style="text-align: left;  padding-right: 10px;">
-                    <li>me and my girlfriend met at the same college her parents met at!</li>
-                    <li>i am one or two degrees of seperation from most of the mc youtubers that were popular in 2020/21</li>
-                    <li></li>
-                </ul>
+                    <div>
+                        <h3>me me me</h3>
+                        <b>birthday:</b> dec 28 <br /><b>primary instrument:</b> viola <br /><b>fav anime:</b> pop team
+                        epic <br /><b>fav song:</b> antonymph by vylet pony <br /><br /><b
+                            >characters that are lit me:</b
+                        >
+                        <ul style="text-align: left; padding-left: 100px; padding-right: 10px">
+                            <li>kris dreamurr</li>
+                            <li>hajime hinata</li>
+                            <li>yuuji itadori</li>
+                            <li>momo ayase</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>fun facts</h3>
+                        <ul style="text-align: left; padding-right: 10px">
+                            <li>me and my girlfriend met at the same college her parents met at!</li>
+                            <li>
+                                i am one or two degrees of seperation from most of the mc youtubers that were popular in
+                                2020/21
+                            </li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="funnydogeatapepsi.html"><img src="images/funnydogeatapepsi.jpg" style="width: 299; height: 298;"></a>
+                        
+                    </div>
+                    <div>
+                        <h3>title</h3>
+                    </div>
                 </div>
             </div>
+            <div class="maintwo">
+            add what's in my bag
             </div>
         </div>
 
@@ -140,12 +170,13 @@ const getTrack = async () => {
                 <img src="images/buttons/css2.png" />
                 <img src="images/buttons/paws.png" />
                 <img src="images/buttons/testosterone.gif" />
-                
             </p>
-            <p>Site by Alexander @aethersportal
-                <br><i>Last Site Update: 28 June, 2026 <br />View the <a href="changelog.html">Changelog</a>. <a href="https://nekoweb.org/follow/inulex.nekoweb.org">Follow me</a>  on nekoweb!</i>
+            <p>
+                Site by Alexander @aethersportal <br /><i
+                    >Last Site Update: 28 June, 2026 <br />View the <a href="changelog.html">Changelog</a>.
+                    <a href="https://nekoweb.org/follow/inulex.nekoweb.org">Follow me</a> on nekoweb!</i
+                >
             </p>
         </div>
-
     </body>
 </html>
