@@ -67,7 +67,7 @@ h1{
   overflow-x: auto;
   text-align: center;
   /*border: 3px double black;*/
-  margin-left: 225px;
+  margin-right: 225px;
   padding: 12px 17px;
   
 }
@@ -82,11 +82,11 @@ h1{
 .sections div {
   color:#283F76;
   background-color: #C1ECFD;
-  padding: 10px;
+  padding: 1px;
   margin: 5px;
   text-align: center;
   width: 300px;
-  height: 250px;
+  height: 300px;
   overflow-y: auto;
 }
 
@@ -103,11 +103,11 @@ h1{
   /*border: 3px double black;*/
   width: 200px;
   position: absolute;
-  text-align: left;
+  text-align: right;
   height: 800px;
   list-style: none;
-  /*  border-right:2px solid white;*/
-
+  margin-left: 1080px;
+    margin-top: 50px;
 }
 
 .footer{
