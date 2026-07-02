@@ -23,9 +23,16 @@ body {
   background:url(../images/backgrounds/paper.jpg);
   font-family: Galmuri11;
   font-size: 15px;
-  cursor: url(/inulex.nekoweb.org/cursor.png), auto !important
+  cursor: url(https://files.catbox.moe/m8m882.png), auto !important
 }
 
+audio{
+  width:1px;
+  color:#F70A36;
+  background: #C1ECFD;
+  padding: 2px;
+  height: 25px; 
+}
 
 /* link colors */
 a {
@@ -166,3 +173,28 @@ h1{
 	 float: right; 
 	 margin-left: 20px;
    }
+
+/* nekocafe widget editing */
+
+#nekocafe-status{
+  background-color: #283F76;
+  text-align: left;
+  font-size: 10px;
+  padding: 5px;
+  color:#C1ECFD;
+}
+
+#nekocafe-pfp{
+  float: left; 
+  margin: 10px;
+}
+
+
+#nekocafe-poster{
+  font-size: 14px;
+}
+
+#nekocafe-text{
+  font-size: 14px;
+  margin-left: 10px;
+}
