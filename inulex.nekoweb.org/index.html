@@ -62,7 +62,7 @@ const post_url = "https://social.nekoweb.org/post/?id=";
         
         div.innerHTML = `
             <img id="nekocafe-pfp" src=${json["image"]} height=65>
-            <p id="nekocafe-poster"><a href="${profile_url + username}">${json["name"]}</a></p>
+            <p id="nekocafe-poster"><a href="${profile_url + username}">${json["name"]}</a> <img src="https://social.nekoweb.org/images/cupicon.png"></p>
             <p id="nekocafe-time">${time}</p>
             <p id="nekocafe-text"><a href="${post_url + json["id"]}">${json["post"]}</a></p>
         ` // make sure the height on the img fits your page!!!
@@ -347,6 +347,7 @@ const post_url = "https://social.nekoweb.org/post/?id=";
                     class="image-container-right"
                     z-index="1" />
                 <h1><span id="wobble">welcome to 犬lex.nekoweb.org!</span></h1>
+                
                 <p>
                     hello! my name is alexander, but you can just say alex. inulex is a personal site that is
                     ever-changing, and i'm glad you're here to visit! <br />(the banner above is temporary... sorry)
@@ -374,20 +375,23 @@ const post_url = "https://social.nekoweb.org/post/?id=";
                         </ul>
                     </div>
                     <div class="sectionsbox">
-                        <h3>fanlistings</h3>
+                        <h3>fanlistings and cliques</h3>
                         <a href="https://pogo.fanfreak.net/"><img src="images/fanlistings/pokego.png" /></a>
 
                         <a href="http://fan.midnight-cloud.net/portal2/"
                             ><img src="images/fanlistings/portal2.png"
                         /></a>
                         <a href="https://fan.enamour.nu/vaporeon"><img src="images/fanlistings/vaporeon.png" /></a>
-                        <br />currently unapproved -&gt;
+                        <a href="https://www.marheavenj.net/arashi/"><img src="images/fanlistings/arashi.jpg"></a>
+                        <br />
                         <a href="http://movieloverfls.org/3ds"><img src="images/fanlistings/3ds.jpg" /></a>
                         <a href="https://fan.moonkiss.org/utdr/"><img src="images/fanlistings/utdr.png" /></a>
                         <a href="https://fanlistings.melankorin.net/minecraft/"
                             ><img src="images/fanlistings/minecraft.png"
                         /></a>
                         <a href="https://fan.ballonlea.net/isat/"><img src="images/fanlistings/isat.png" /></a>
+                        <p></p>
+                        <a href="https://ac.kuchiki.net/" target="new"><img src="images/cliques/peanut.gif" title="pixel friends | peanut"></a>
                     </div>
                     <div class="sectionsbox">
                         <h3>webrings</h3>
