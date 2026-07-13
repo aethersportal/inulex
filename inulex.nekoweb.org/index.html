@@ -21,38 +21,9 @@
                 src="images/xanderPoint.png"
                 width="250px"
                 style="position: absolute; left: 1150px; top: 700px; z-index: 1" />
-           <div class="marquee">
-               <div class="marquee-items">
-                        <img src="images/stamps/ralsei.webp" />
-                        <img src="images/stamps/areyouserious.png" />
-                        <img src="images/stamps/3dsowner.jpg" />
-                        <img src="images/stamps/4everOnline.png" />
-                        <img src="images/stamps/apertureScience.png" />
-                        <img src="images/stamps/NNSG.png" />
-                        <img src="images/stamps/nyanPortal.gif" />
-                        <img src="images/stamps/ocBaby.png" />
-                        <img src="images/stamps/paintFan.jpg" />
-                        <img src="images/stamps/pyroTf2.gif" />
-                        <img src="images/stamps/saikiK.png" />
-                        <img src="images/stamps/splatoon.png" />
-                        <img src="images/stamps/squiggle.jpg" />
-                        <img src="images/stamps/susiepancakes.gif" />
-                        <img src="images/stamps/tumblrSexymen.webp" />
-                   <img src="https://files.catbox.moe/gezgwp.jpg">
-                   <img src="https://files.catbox.moe/zt1jfu.gif">
-                   <img src="https://files.catbox.moe/674sqw.gif">
-                   <img src="https://files.catbox.moe/8nqrnf.png">
-                   <img src="https://files.catbox.moe/d4c09d.webp">
-                   <img src="https://files.catbox.moe/n53qnp.webp">
-                   <img src="https://files.catbox.moe/zcnc0a.png">
-                   <img src="https://files.catbox.moe/tw5xls.png">
-                   <img src="https://files.catbox.moe/po2y4n.webp">
-                   <img src="https://files.catbox.moe/cvgb5d.png">
-                   <img src="https://files.catbox.moe/1jjzok.png">
-                   <img src="https://files.catbox.moe/o6938f.gif">
-                   <img src="https://files.catbox.moe/6h4fpa.webp">
-               </div>
-           </div>
+            <div class="marquee">
+                <div class="marquee-items" data-marquee="top"></div>
+            </div>
             <nav class="side">
                 <h2 style="margin-bottom: -10px">಄ navigation</h2>
                 <ul>
@@ -191,7 +162,7 @@
                                 type="text/javascript"
                                 src="https://bishoujopalace.neocities.org/WebRing/onionring/onionring-widget.js"></script>
                             <script>
-                                document.getElementById('Icon').src="HERE";>
+                                document.getElementById('Icon').src = "HERE";
                             </script>
                         </div>
                         <!--NYANRING-->
@@ -203,35 +174,7 @@
                 </div>
             </main>
                 <div class="marquee" data-direction="right">
-                    <div class="marquee-items">
-                        <img src="images/stamps/areYouSure.webp" />
-                        <img src="images/stamps/bindingofissac.png" />
-                        <img src="images/stamps/botwlink.gif" />
-                        <img src="images/stamps/crackcocaine.png" />
-                        <img src="images/stamps/ctrlZ.png" />
-                        <img src="images/stamps/danteLimbus.png" />
-                        <img src="images/stamps/diagonalkris.png" />
-                        <img src="images/stamps/gladosPortal.png" />
-                        <img src="images/stamps/mikuConcert.webp" />
-                        <img src="images/stamps/krissusiedeltarune.gif" />
-                        <img src="images/stamps/lineartButton.png" />
-                        <img src="images/stamps/chickenJockey.webp" />
-                        <img src="images/stamps/navySeal.png" />
-                        <img src="images/stamps/nekoAtsume.gif" />
-                         <img src="images/stamps/valveGames.webp" />
-                        <img src="images/stamps/vaporeon.gif" />
-                        <img src="images/stamps/winggaster.png" />
-                        <img src="images/stamps/worldMine.webp" />
-                        <img src="images/stamps/yaoiWarn.png" />
-                        <img src="https://files.catbox.moe/9pxf68.gif">
-                    <img src="https://files.catbox.moe/wqu2de.png">
-                   <img src="https://files.catbox.moe/n016fl.png">
-                   <img src="https://files.catbox.moe/k40m9i.gif">
-                   <img src="https://files.catbox.moe/n66miw.png">
-                   <img src="https://files.catbox.moe/u3yggu.jpg">
-                   <img src="https://files.catbox.moe/8b7z4x.gif">
-                   <img src="https://files.catbox.moe/ex2cjl.jpg">
-                    </div>
+                    <div class="marquee-items" data-marquee="bottom"></div>
                 </div>
             </div>
         <div class="footer">
@@ -258,43 +201,46 @@
         </div>
         <img src="images/musicPlayer.gif" id="musicImg" style="position: fixed;width: 50px;bottom: 5px;left: 5px;z-index: 1" title="click to play music!"/>
 <!--musicplayer--><script>
-                document.getElementById("musicImg").onclick = function () {
-                    var audio = document.getElementById("music");
-                    if (audio.paused == false) {
-                        audio.pause();
-                    } else {
-                        document.getElementById("music").volume = 0.1; 
-                        audio.play();   
-                    }
-                }
-            </script>
+    document.getElementById("musicImg").addEventListener("click", function () {
+        var audio = document.getElementById("music");
+        if (audio.paused) {
+            audio.volume = 0.1;
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    });
+</script>
 <!--marquee effect--><script>
-function handleMarquee() {
-// Get all marquees on page
-const marquees = document.querySelectorAll(".marquee");
+    function handleMarquee() {
+        document.querySelectorAll(".marquee").forEach(function (marquee) {
+            var container = marquee.querySelector(".marquee-items");
+            var clone = container.cloneNode(true);
+            marquee.appendChild(clone);
 
-// Loop through each marquee
-  marquees.forEach((marquee) => {
-    // Get the main container and clone it
-    // And then add the clone to the marquee
-    const container = marquee.querySelector(".marquee-items");
-    let clone = container.cloneNode(true);
-    marquee.appendChild(clone);
-    
-    // Finally, add the scroll class at the same time so there is no gaps in the scrolling effect
-    // We also determine if the items should be scrolling right-to-left instead by default, and adjust the marquees flex
-    // direction and which animation the containers use if so
-    if (marquee.dataset.direction == "right") {
-      marquee.style.flexDirection = "row-reverse";
-      container.classList.add("scroll-l2r");
-      clone.classList.add("scroll-l2r");
-    } else {
-      container.classList.add("scroll-r2l");
-      clone.classList.add("scroll-r2l");
+            if (marquee.dataset.direction == "right") {
+                marquee.style.flexDirection = "row-reverse";
+                container.classList.add("scroll-l2r");
+                clone.classList.add("scroll-l2r");
+            } else {
+                container.classList.add("scroll-r2l");
+                clone.classList.add("scroll-r2l");
+            }
+        });
     }
-  });
-}
-handleMarquee();
+
+    fetch("data/marquee-items.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (items) {
+            document.querySelectorAll(".marquee-items[data-marquee]").forEach(function (container) {
+                container.innerHTML = items[container.dataset.marquee].map(function (src) {
+                    return '<img src="' + src + '" alt="">';
+                }).join("");
+            });
+            handleMarquee();
+        });
 </script>
 <!--wobbly text effect--><script>
     // <![CDATA[
