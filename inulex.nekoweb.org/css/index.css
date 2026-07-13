@@ -1,26 +1,48 @@
 @font-face { font-family: Galmuri11; src: url('../fonts/Galmuri11.ttf'); } 
 
+:root {
+  --main-color: #283F76;
+  --med-color: #5591D1;
+  --light-color: #C1ECFD;
+  --highlight-color: #F70A36;
+  --text-color: #FFF6B7;
+}
+
+
 ::-webkit-scrollbar {
   width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #C1ECFD; 
+  background: var(--light-color); 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #5591D1; 
+  background: var(--med-color); 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #326194; 
+  background: var(--main-color); 
 }
+
+/*::-moz-selection {
+  color: black;
+  background: #b5d786;
+}
+
+::selection {
+  color: black;
+  background: #b5d786;
+}
+
+*/
 
 body {
   background:url(../images/backgrounds/paper.jpg);
+  position: relative;
   font-family: Galmuri11;
   font-size: 15px;
   cursor: url(https://files.catbox.moe/m8m882.png), auto !important
@@ -28,20 +50,20 @@ body {
 
 audio{
   width:1px;
-  color:#F70A36;
-  background: #C1ECFD;
+  color: var(--highlight-color);
+  background: var(--light-color);
   padding: 2px;
   height: 25px; 
 }
 
 /* link colors */
 a {
-  color: #FFF6B7;
+  color: var(--text-color);
 }
 
 h1{
-  color: #F70A36;
-  text-shadow: 0 0 5px #F70A36;
+  color: var(--highlight-color);
+  text-shadow: 0 0 5px var(--highlight-color);
   
 }
 
@@ -61,9 +83,9 @@ h1{
   width: 1300px;
   height:auto;
   margin-bottom: 5px;
-  background: #283F76;
+  background: var(--main-color);
   text-align: center;
-  color: #FFF6B7; /*text color*/
+  color: var(--text-color); /*text color*/
   position: relative;
 
 /*border-radius: 5px;   <- rounds the corners*/
@@ -76,7 +98,11 @@ h1{
   /*border: 3px double black;*/
   margin-left: 225px;
   padding: 12px 17px;
-  
+}
+
+.maintwo {
+  overflow-x: auto;
+  text-align: center;
 }
 
 
@@ -87,8 +113,8 @@ h1{
 }
 
 .sectionsbox {
-  color:#283F76;
-  background-color: #C1ECFD;
+  color: var(--main-color);
+  background-color:  var(--light-color);
   padding: 10px;
   margin: 5px;
   text-align: center;
@@ -98,13 +124,13 @@ h1{
 }
 
 .sections h3{
-  color:#F70A36;
-  text-decoration: underline solid #283F76 2px;
+  color: var(--highlight-color);
+  text-decoration: underline solid var(--main-color) 2px;
 }
 
 /*Sidebar*/
 .side {
-  background-color: #5591D1;
+  background-color: var(--med-color);
   overflow-x: auto;
   padding: 0 10px 10px 10px;
   /*border: 3px double black;*/
@@ -122,47 +148,67 @@ h1{
   width: 1300px;
   margin-top: 10px;
   margin-bottom: 5px;
-  background: #283F76;
+  background: var(--main-color);
   text-align: center;
   padding:5px 0 5px 5px;
-  color: #FFF6B7; /*text color*/
+  color: var(--text-color); /*text color*/
   height: auto;
 }
 
   /* Marquee styles */
-.marquee {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-}
 
-.marquee__content {
-  flex-shrink: 0;
-  display: flex;
-  min-width: 100%;
-  animation: scroll 60s linear infinite;
-}
-
-.marquee__content img {
-  width: 100px;
-  margin: 0 5px 0 5px;
-}
-
-@keyframes scroll {
+@keyframes scroll-r2l {
   from {
     transform: translateX(0);
   }
+
   to {
-    transform: translateX(calc(-100%));
+    transform: translateX(-100%);
   }
 }
 
-/* Pause animation when reduced-motion is set */
-@media (prefers-reduced-motion: reduce) {
-  .marquee__content {
-    animation-play-state: paused !important;
+.scroll-r2l {
+  animation: scroll-r2l 60s linear infinite;
+}
+
+@keyframes scroll-l2r {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }
+
+.scroll-l2r {
+  animation: scroll-l2r 60s linear infinite;
+}
+
+.marquee {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  box-sizing: unset;  
+}
+
+.marquee-items {
+  display: flex;
+  flex-shrink: 0;
+  height: 100%; /* This line is extremely important to prevent bugs on some browsers such as FireFox */
+  min-width: 100%;
+  position: relative;
+}
+
+/* Changes to this class will only affect the children
+of the marquee-items, and not all of their descendants.
+Make changes here if you want spaces in-between the
+marquee items or other effects and styles!*/
+.marquee-items > * {
+  margin: 10px 5px 10px 0;
+  height: 50px;
+}
+
 
 .image-container-left {
 	 float: left; 
@@ -177,11 +223,12 @@ h1{
 /* nekocafe widget editing */
 
 #nekocafe-status{
-  background-color: #283F76;
+  background-color: var(--main-color);
   text-align: left;
   font-size: 10px;
   padding: 5px;
-  color:#C1ECFD;
+  color: var(--light-color);
+  
 }
 
 #nekocafe-pfp{
@@ -197,4 +244,12 @@ h1{
 #nekocafe-text{
   font-size: 14px;
   margin-left: 10px;
+}
+
+#NYAN_{
+  max-width: 250px;
+}
+
+#swatchClock a{
+  color:#283F76;
 }

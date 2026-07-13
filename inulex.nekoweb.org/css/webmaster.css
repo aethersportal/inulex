@@ -129,41 +129,7 @@ h1{
   height: auto;
 }
 
-  /* Marquee styles */
-.marquee {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-}
-
-.marquee__content {
-  flex-shrink: 0;
-  display: flex;
-  min-width: 100%;
-  animation: scroll 60s linear infinite;
-}
-
-.marquee__content img {
-  width: 100px;
-  margin: 0 5px 0 5px;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100%));
-  }
-}
-
-/* Pause animation when reduced-motion is set */
-@media (prefers-reduced-motion: reduce) {
-  .marquee__content {
-    animation-play-state: paused !important;
-  }
-}
-
+ 
 .image-container-left {
 	 float: left; 
 	 margin-right: 20px;
