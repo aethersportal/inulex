@@ -59,6 +59,7 @@ audio{
 /* link colors */
 a {
   color: var(--text-color);
+  text-decoration: underline;
 }
 
 h1{
@@ -137,10 +138,6 @@ h1{
   position: absolute;
   text-align: left;
   height: 825px;
-}
-
-.side a{
-  text-decoration: underline;
 }
 
 .footer{
@@ -228,7 +225,10 @@ marquee items or other effects and styles!*/
   font-size: 10px;
   padding: 5px;
   color: var(--light-color);
-  
+}
+
+#nekocafe-status a{
+  text-decoration: none;
 }
 
 #nekocafe-pfp{
