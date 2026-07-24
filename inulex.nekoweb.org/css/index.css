@@ -133,13 +133,14 @@ h1{
   background-color: var(--med-color);
   overflow-x: auto;
   padding: 0 10px 10px 10px;
-  /*border: 3px double black;*/
   width: 200px;
   position: absolute;
   text-align: left;
   height: 825px;
-  /*  border-right:2px solid white;*/
+}
 
+.side a{
+  text-decoration: underline;
 }
 
 .footer{

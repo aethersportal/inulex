@@ -1,12 +1,18 @@
-@font-face { font-family: Minecraft; src: url('../fonts/Minecraft.ttf'); } 
+@font-face {
+  font-family: Minecraft;
+  src: url(../fonts/Minecraft.ttf);
+}
+
+
 
 body {
   background: url(../images/backgrounds/minecraftmovie.png);
-     background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
-  font-family: monospace;
-  font-size: 14px;
+  font-family: Minecraft;
+  font-size: 16px;
 }
+
 
 a {
   color: rgb(21, 63, 21);
@@ -107,24 +113,4 @@ a {
   padding: 12px 17px;
   margin-bottom: 35px;
   margin-top: 35px;
-}
-
-
-/* for sticky img, use <img src = "img.png" class = "sticky"> */
-.sticky1{
-  position: absolute;
-  left: -25px;
-  top: 900px;
-}
-
-.sticky2{
-  position: absolute;
-  left: 940px;
-  top: 1500px;
-}
-
-.sticky3{
-  position: absolute;
-  left: -25px;
-  top: 2100px;
 }
