@@ -74,11 +74,20 @@ h1{
 .header {
   text-align: center;
   margin: auto;
-    margin-top: 50px;
   width: 1300px;
   font-size: 50px;
-  background: url(https://files.catbox.moe/xxppjx.png);
+  background: url(../images/banner.png);
    height:200px;
+}
+
+#paws{
+  background: url(../images/banneroverlay.png);
+  height: 120px;
+  width: 336px;
+  position: absolute;
+  z-index: 5;
+  top: -50px;
+  left: 162px;
 }
 
 /*Everything goes inside this.*/
@@ -144,8 +153,13 @@ h1{
   height: 825px;
 }
 
+textarea{
+  width: 88px;
+  height: 31px;
+}
+
 .footer{
- margin: 0 auto;
+  margin: auto;
   width: 1300px;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -154,6 +168,13 @@ h1{
   padding:5px 0 5px 5px;
   color: var(--text-color); /*text color*/
   height: auto;
+}
+
+.footer div{
+  margin: auto;
+  display:flex;
+  justify-content: center;
+
 }
 
   /* Marquee styles */
