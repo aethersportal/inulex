@@ -44,8 +44,18 @@ h1{
     margin-top: 50px;
   width: 1300px;
   font-size: 50px;
-  background: url(https://files.catbox.moe/xxppjx.png);
+  background: url(../images/banner.png);
    height:200px;
+}
+
+#paws{
+  background: url(../images/banneroverlay.png);
+  height: 120px;
+  width: 336px;
+  position: absolute;
+  z-index: 5;
+  top: -50px;
+  left: 162px;
 }
 
 /*Everything goes inside this.*/
