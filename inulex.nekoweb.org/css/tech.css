@@ -40,6 +40,10 @@ h1{
         -webkit-text-stroke: 5px transparent;
 }
 
+a{
+    color: rgb(235, 74, 221);
+}
+
 .images {
     display: flex;
     justify-content: center;
